@@ -13,10 +13,11 @@ showBtn.addEventListener('click', () => {
 
   suggestionsContainer.innerHTML = '';
   suggestions.forEach(s => {
-    const div = document.createElement('div');
-    div.className = 'flex items-center space-x-2';
-    div.innerHTML = `<img src="${s.img}" alt="${s.name}" class="w-16 h-16 object-cover rounded"><span>${s.name}</span>`;
-    suggestionsContainer.appendChild(div);
+    const li = document.createElement('li');
+    li.className = 'flex items-center gap-4 border rounded p-3 mb-2 bg-white shadow';
+    li.innerHTML = `<img src="${s.img}" alt="${s.name}" class="w-20 h-20 object-cover rounded" />` +
+      `<span class="text-lg font-medium">${s.name}</span>`;
+    suggestionsContainer.appendChild(li);
   });
 
   barberCardContent.innerHTML = suggestionsContainer.innerHTML;
