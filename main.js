@@ -4,12 +4,17 @@ const barberCard = document.getElementById('barberCard');
 const barberCardContent = document.getElementById('barberCardContent');
 const printBtn = document.getElementById('printBarberCardBtn');
 
+const haircutImages = {
+  "Crew Cut": "https://via.placeholder.com/100?text=Crew+Cut",
+  "Fade": "https://via.placeholder.com/100?text=Fade",
+  "Pompadour": "https://via.placeholder.com/100?text=Pompadour"
+};
+
 showBtn.addEventListener('click', () => {
-  const suggestions = [
-    { name: 'Crew Cut', img: 'https://via.placeholder.com/150' },
-    { name: 'Fade', img: 'https://via.placeholder.com/150' },
-    { name: 'Pompadour', img: 'https://via.placeholder.com/150' }
-  ];
+  const suggestions = Object.keys(haircutImages).map(name => ({
+    name,
+    img: haircutImages[name]
+  }));
 
   suggestionsContainer.innerHTML = '';
   suggestions.forEach(s => {
